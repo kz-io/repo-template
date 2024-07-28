@@ -1,10 +1,13 @@
 {
-  "name": "@kz/jsr-package",
+  "name": "@kz/mod-name",
   "version": "0.0.1",
+  // If only exporting the mod.ts, update the object to "./mod.ts" and update the docs task to include only the mod.ts file
   "exports": {
-    ".": "./src/mod.ts",
-    "./exceptions": "./exceptions/mod.ts",
-    "./types": "./types/mod.ts"
+    ".": "./mod.ts",
+    "./decorators": "./src/decorators/mod.ts",
+    "./exceptions": "./src/exceptions/mod.ts",
+    "./types": "./src/types/mod.ts",
+    "./utils": "./src/utils/mod.ts"
   },
   "lint": {
     "rules": {
@@ -30,23 +33,14 @@
     "semiColons": true
   },
   "tasks": {
-    // Format and check formatting
     "fmt": "deno fmt && deno fmt --check",
-    // Lint and check linting
     "lint": "deno lint",
-    // Test and generate coverage
     "test": "deno test --allow-all --coverage --doc --trace-leaks",
-    // Test, generate coverage, and generate coverage report
     "cov": "deno task test && deno task cov:gen && deno task cov:report",
-    // Generate coverage report
     "cov:gen": "deno coverage coverage --lcov --output=cov.lcov",
-    // Generate coverage report
     "cov:report": "deno coverage --html coverage",
-    // Generate documentation
-    "docs": "deno doc --html --name=@kz/jsr-package ./exceptions/mod.ts ./types/mod.ts ./src/mod.ts",
-    // Check if the package is ready to be published
+    "docs": "deno doc --html --name=@kz/mod-name ./src/decorators.ts ./src/exceptions/mod.ts ./src/types/mod.ts ./src/utils/mod.ts ./mod.ts",
     "jsr:check": "deno publish --dry-run --allow-dirty",
-    // Run all pre-commit tasks
     "pre-commit": "deno task cov && deno task docs && deno task jsr:check && deno task lint && deno task fmt"
   },
   "imports": {
@@ -64,9 +58,8 @@
     "include": [
       "README.md",
       "LICENSE",
-      "mod.ts",
       "**/*.ts",
-      "denoc.json",
+      "deno.jsonc",
       "deno.lock",
       "**/*.json"
     ],
