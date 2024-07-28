@@ -27,7 +27,7 @@ mod-name: the name of the module
   <strong>mod-name</strong>
 </div>
 <p>
-  kz is a collection of easy-to-use utility and feature libraries for creating anything you want with the <a href="https://deno.com">Deno</a> runtime.
+  kz is an easy-to-use utility and feature library for creating anything you want with the <a href="https://deno.com">Deno</a> runtime.
 </p>
 <h3>@kz/mod-name</h3>
 <p>
