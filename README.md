@@ -81,7 +81,6 @@ The MIT License (MIT) 2020-2024 integereleven. Refer to [LICENSE][license] for d
 ---
 
 <div align="center">
-<div><small>Built with ❤ in Greenwood</small></div>
 <img
   alt="@kz logo"
   height="48"
